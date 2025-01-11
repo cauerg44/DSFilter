@@ -13,16 +13,12 @@ type FormData = {
 
 export default function FilterCard({ onFilter }: Props) {
 
-    const [formData, setFormData] = useState<FormData>({
-        min: undefined,
-        max: undefined
-    })
+    const [formData, setFormData] = useState<FormData>({})
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function handleSubmit(event: any) {
         event.preventDefault()
         setFormData(formData)
-        console.log(formData)
         onFilter(formData.min, formData.max)
     }
 
@@ -36,9 +32,9 @@ export default function FilterCard({ onFilter }: Props) {
     return (
         <div className='dsf-filter-card mt20 mb20'>
             <form className='dsf-form-container' onSubmit={handleSubmit}>
-                <input value={formData.min} className='mb20' type="text" placeholder='Preço mínimo' onChange={handleChange}/>
-                <input className='mb20' type="text" placeholder='Preço máximo'/>
-                <button>Filtrar</button>
+                <input name='min' value={formData.min || ""} className='mb20' type="text" placeholder='Preço mínimo' onChange={handleChange}/>
+                <input name='max' value={formData.max || ""} className='mb20' type="text" placeholder='Preço máximo' onChange={handleChange}/>
+                <button type='submit' >Filtrar</button>
             </form>
         </div>
     )
