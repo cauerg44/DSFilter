@@ -6,9 +6,12 @@
     --dsf-bg-color-tertiary: #FFFFFF;
 
     --dsf-border-color-primary: #C2C2C2;
+    --dsf-border-color-secondary: #55BC04;
 
     --dsf-font-color-primary: #FFFFFF;
     --dsf-font-color-secondary: #C2C2C2;
+    --dsf-font-color-tertiary: #6F6F6F;
+    --dsf-font-color-quaternary: #55BC04;
 }
 
 * {
