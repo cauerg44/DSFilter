@@ -24,3 +24,7 @@ nav p {
     font-weight: 700;
     color: var(--dsf-font-color-primary);
 }
+
+.dsf-products-count {
+    display: inline;
+}

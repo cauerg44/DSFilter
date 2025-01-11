@@ -8,7 +8,7 @@ type Props = {
 export default function Listing({ products }: Props) {
 
     return (
-        <div className='dsf-listing-card'>
+        <div className='dsf-listing-card mb20'>
             <div className='dsf-products-card-container'>
                 {
                     products.length > 0 ? (
