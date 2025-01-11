@@ -1,34 +1,28 @@
 import './styles.css'
+import { ProductDTO } from '../../models/product'
 
-export default function Listing() {
+type Props = {
+    products: ProductDTO[]
+}
+
+export default function Listing({ products }: Props) {
 
     return (
         <div className='dsf-listing-card'>
             <div className='dsf-products-card-container'>
-                <div className='dsf-product-card'>
-                    <p>PC Gamer Pro</p>
-                    <h4>R$ 1200.00</h4>
-                </div>
-                <div className='dsf-product-card'>
-                    <p>PC Gamer Pro</p>
-                    <h4>R$ 1200.00</h4>
-                </div>
-                <div className='dsf-product-card'>
-                    <p>PC Gamer Pro</p>
-                    <h4>R$ 1200.00</h4>
-                </div>
-                <div className='dsf-product-card'>
-                    <p>PC Gamer Pro</p>
-                    <h4>R$ 1200.00</h4>
-                </div>
-                <div className='dsf-product-card'>
-                    <p>PC Gamer Pro</p>
-                    <h4>R$ 1200.00</h4>
-                </div>
-                <div className='dsf-product-card'>
-                    <p>PC Gamer Pro</p>
-                    <h4>R$ 1200.00</h4>
-                </div>
+                {
+                    products.length > 0 ? (
+                        products.map(product => (
+                            <div className='dsf-product-card' key={product.id}>
+                                <p>{product.name}</p>
+                                <h4>R$ {product.price.toFixed(2)}</h4>
+                            </div>
+                        )
+                    )
+                    )
+                    :
+                    <p className='dsf-error-msg'>Nenhum produto encontrado, filtre novamente.</p>
+                }
             </div>
         </div>
     )
