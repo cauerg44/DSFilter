@@ -4,21 +4,27 @@ import Listing from '../Listing'
 import { ProductDTO } from '../../models/product'
 import * as productService from '../../services/product-service'
 
+type QueryParams = {
+    minValue: number,
+    maxValue: number
+}
+
 export default function ListingBody() {
 
     const [products, setProducts] = useState<ProductDTO[]>([])
 
-    const [minValue, setMinValue] = useState(0)
-    const [maxValue, setMaxValue] = useState(Number.MAX_VALUE)
+    const [queryParams, setQueryParams] = useState<QueryParams>({
+        minValue: 0,
+        maxValue: Number.MAX_VALUE
+    })
 
     useEffect (() => {
-        const filteredProducts = productService.findByPrice(minValue, maxValue)
+        const filteredProducts = productService.findByPrice(queryParams.minValue, queryParams.maxValue)
         setProducts(filteredProducts)
-    }, [minValue, maxValue])
+    }, [queryParams])
 
     function handleFilter(min: number, max: number) {
-        setMinValue(min)
-        setMaxValue(max)
+        setQueryParams({ ...queryParams, minValue: min, maxValue: max })
     }
 
     return (
