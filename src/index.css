@@ -2,8 +2,13 @@
 
 :root {
     --dsf-bg-color-primary: #55BC04;
+    --dsf-bg-color-secondary: #C2C2C2;
+    --dsf-bg-color-tertiary: #FFFFFF;
+
+    --dsf-border-color-primary: #C2C2C2;
 
     --dsf-font-color-primary: #FFFFFF;
+    --dsf-font-color-secondary: #C2C2C2;
 }
 
 * {
@@ -17,4 +22,16 @@
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
+}
+
+body {
+    background-color: var(--dsf-bg-color-secondary);
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
 }
