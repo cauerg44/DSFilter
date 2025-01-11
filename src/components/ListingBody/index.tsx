@@ -8,14 +8,22 @@ export default function ListingBody() {
 
     const [products, setProducts] = useState<ProductDTO[]>([])
 
+    const [minValue, setMinValue] = useState(0)
+    const [maxValue, setMaxValue] = useState(Number.MAX_VALUE)
+
     useEffect (() => {
-        const filteredProducts = productService.findByPrice(0, 1500)
+        const filteredProducts = productService.findByPrice(minValue, maxValue)
         setProducts(filteredProducts)
-    }, [])
+    }, [minValue, maxValue])
+
+    function handleFilter(min: number, max: number) {
+        setMinValue(min)
+        setMaxValue(max)
+    }
 
     return (
         <section className="dsf-main-container">
-            <FilterCard />
+            <FilterCard onFilter={handleFilter}/>
             <Listing products={products}/>
         </section>
     )
