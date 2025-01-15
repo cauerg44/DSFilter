@@ -28,7 +28,7 @@ export default function ListingBody() {
     }, [queryParams])
 
     function handleFilter(min: number, max: number) {
-        setQueryParams({ ...queryParams, minValue: min, maxValue: max })
+        setQueryParams({ minValue: min || 0, maxValue: max || Number.MAX_VALUE})
     }
 
     return (
